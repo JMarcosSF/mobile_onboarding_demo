@@ -1,0 +1,6 @@
+A simple JQuery driven MVP with a twitter-bootstrapped based UI and 
+flat-ui plugin.
+
+This demo displays a mobile device webflow for a user to enroll for 
+mobile services (i.e., setup an account, select a mobile plan, select 
+payment options, select a phone number, etc.).
