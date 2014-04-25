@@ -1,0 +1,5 @@
+{"plans": [
+	{"id": 1, "name": "Plan 1", "price": 30, "details":["750 Anytime Minutes", "250 Text Messages", "500MB Data Included"]},
+	{"id": 2, "name": "Plan 2", "price": 50, "details":["1000 Anytime Minutes", "50 Text Messages", "1.5GB Data Included"]},
+	{"id": 3, "name": "Plan 3", "price": 80, "details":["Unlimited Voice", "Unlimited Text", "Unlimited Data"]}
+]}

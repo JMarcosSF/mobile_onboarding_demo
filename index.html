@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- Loading Bootstrap -->
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+<!-- Loading Flat UI -->
+<link href="css/flat-ui.css" rel="stylesheet">
+<link href="css/demo.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/favicon.ico">
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+<!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <![endif]-->
+</head>
+<body style="" cz-shortcut-listen="true">
+	<div id="nav-header" class="navbar navbar-inverse navbar-fixed-top"
+		role="navigation">
+		<div class="navbar-header">
+			<a class="brand" href="index.html"><img id="nav-logo"
+				src="images/golden-gate-_goldengate-logo-111x54-white.png"></a>
+			<!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>-->
+		</div>
+		<div class="collapse navbar-collapse">
+			<!--<ul class="nav navbar-nav">
+               <li class="active"><a href="#">Home</a></li>
+               <li><a href="#about">About</a></li>
+               <li><a href="#contact">Contact</a></li>
+               </ul>-->
+		</div>
+		<!--/.nav-collapse -->
+		<!--         </div>-->
+	</div>
+	<iframe id="fb-iframe" src="fb_login_mock_1.html"></iframe>
+	<div class="container">
+		<div class="content">
+			<div id="welcome-div" class="center">
+				<h3>Welcome to Golden Gate Mobile</h3>
+				<br />
+				<p>
+					The setup will guide you<br />through enrolling for service.
+				</p>
+				<div class="control-group">
+					<div class="controls">
+						<button type="button" class="btn btn-primary btn-wide"
+							onclick="start()">Start</button>
+					</div>
+				</div>
+			</div>
+			<div id="subscriber-options-div">
+			<legend> Subscriber Options </legend>
+			 <button type="button" class="btn btn-link sub-opts-btn"
+                                onclick="showUserInfoForm()">
+                                Enter your personal information <b>></b>
+                            </button><br>
+                            <img id="fb-icon" src="images/fb_icon.png">
+                            <button type="button" class="btn btn-link sub-opts-btn"
+                                onclick="startFBSection();">
+                                Register using your Facebook account <b>></b>
+                            </button>
+			</div>
+			<div id="user-info-div">
+				<form class="form-horizontal">
+					<legend> Subscriber Information </legend>
+					<div id="sub-inf-control-group">
+					<div class="control-group">
+						<!--            <label class="control-label" for="inf-name-txt">Text input</label>-->
+						<div class="controls">
+							<input type="text" class="form-control" id="inf-name-txt"
+								placeholder="Name">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="inf-addr-txt"></label>
+						<div class="controls">
+							<input type="email" class="form-control" id="inf-addr-txt"
+								placeholder="Address">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="inf-email-txt"></label>
+						<div class="controls">
+							<input type="email" class="form-control" id="inf-email-txt"
+								placeholder="Email">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="inf-dob">Date of Birth</label>
+						<div class="controls">
+							<input type="date" class="form-control" id="inf-dob">
+						</div>
+					</div>
+					</div>
+					<br />
+					<!--<div id="inf-btn-group" class="control-group">-->
+					<div id="join-btn-div" class="controls">
+						<button id="inf-prepay-btn" type="button"
+							class="btn btn-primary left-btn">No Contract</button>
+						<button id="inf-postpay-btn" type="button"
+							class="btn btn-default right-btn">Contract</button>
+					</div>
+					<!--</div>-->
+					<br />
+					<button id="help-decide-btn" type="button" class="btn btn-link"
+						onclick="$('#helper-modal').modal()">
+						<u>Help me decide</u>
+					</button>
+					<div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button id="sub-info-back-btn" type="button" class="btn btn-default btn-block left-btn"
+                                onclick="back(currentEl); clearValue(creditCheckData)">Back</button>
+                            <button id="sub-info-next-btn" type="button"
+                                class="btn btn-primary right-btn"
+                                onclick="submitUserInfoForm()">Next</button>
+                        </div>
+                    </div>
+					<!--<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="button" class="btn btn-primary btn-block"
+								onclick="submitUserInfoForm()">Next</button>
+						</div>
+					</div>-->
+				</form>
+			</div>
+			<div id="acct-type-select-div">
+			<legend>Account Type</legend>
+			<div class="control-group">
+			 <div id="join-btn-div" class="controls">
+                        <button id="inf-prepay-btn" type="button"
+                            class="btn btn-primary left-btn">No Contract</button>
+                        <button id="inf-postpay-btn" type="button"
+                            class="btn btn-default right-btn">Contract</button>
+                    </div>
+                    <button id="help-decide-btn" type="button" class="btn btn-link"
+                        onclick="$('#helper-modal').modal()">
+                        <u>Help me decide</u>
+                    </button>
+                    <div class="controls">
+                        <button type="button" class="btn btn-primary btn-wide" onclick="start()">Next</button>
+                    </div>
+                </div>
+			</div>
+			<div id="credit-check-div">
+				<form class="form-horizontal">
+					<legend> Credit Check </legend>
+					<div class="control-group">
+						<!--            <label class="control-label" for="card-type-txt">Text input</label>-->
+						<div class="controls">
+							<input type="hidden" class="form-control" id="cred-type-txt"
+								placeholder="Card Type">
+						</div>
+						<div id="card-type-ddl" class="dropdown">
+							<button id="credit-check-card-type-ddl-btn"
+								class="btn btn-primary dropdown-toggle btn-wide"
+								data-toggle="dropdown">
+								Card Type<span class="caret"></span>
+							</button>
+							<span class="dropdown-arrow"></span>
+							<ul id="card-type-list" class="dropdown-menu">
+								<li><a href="#fakelink"
+									onclick="setCCTypeHiddenVal($(this).text(), $('#cred-type-txt')); setCardTypeDDLText($('#credit-check-card-type-ddl-btn'), $(this).text());">VISA</a></li>
+								<li><a href="#fakelink"
+									onclick="setCCTypeHiddenVal($(this).text(), $('#cred-type-txt')); setCardTypeDDLText($('#credit-check-card-type-ddl-btn'), $(this).text());">MASTERCARD</a></li>
+								<li><a href="#fakelink"
+									onclick="setCCTypeHiddenVal($(this).text(), $('#cred-type-txt')); setCardTypeDDLText($('#credit-check-card-type-ddl-btn'), $(this).text());">AMEX</a></li>
+								<li><a href="#fakelink"
+									onclick="setCCTypeHiddenVal($(this).text(), $('#cred-type-txt')); setCardTypeDDLText($('#credit-check-card-type-ddl-btn'), $(this).text());">DISCOVER</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="cred-name-txt"></label>
+						<div class="controls">
+							<input type="text" class="form-control" id="cred-name-txt"
+								placeholder="Name on Card">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="cred-num-txt"></label>
+						<div class="controls">
+							<input type="number" class="form-control" id="cred-num-txt"
+								placeholder="Card Number">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="cred-exp-date">Expiration
+							Date</label>
+						<div class="controls">
+							<input type="month" class="form-control" id="cred-exp-date">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="cred-sec-txt"></label>
+						<div class="controls">
+							<input type="number" class="form-control" id="cred-sec-txt"
+								placeholder="Security Code">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="cred-dl-txt"></label>
+						<div class="controls">
+							<input type="text" class="form-control" id="cred-dl-txt"
+								placeholder="Driver's License #">
+						</div>
+					</div>
+					<br /> <label class="checkbox" for="checkbox1">I Agree To
+						Credit Check <input type="checkbox" value="" id="checkbox1"
+						data-toggle="checkbox">
+					</label> <br />
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="button" class="btn btn-default btn-block left-btn"
+								onclick="back(currentEl); clearValue(creditCheckData)">Back</button>
+							<button id="cred-check-next-btn" type="button"
+								class="btn btn-primary right-btn"
+								onclick="submitCreditCheckForm()">Next</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div id="select-plan-div">
+				<form class="form-horizontal">
+					<legend> Select a Plan </legend>
+					<div class="control-group">
+						<div class="controls">
+							<input type="text" class="form-control" id="cred-type-txt"
+								placeholder="Promotion Code">
+						</div>
+					</div>
+					<div id="select-btn-group" class="control-group">
+						<div class="controls">
+							<button type="button" class="btn btn-link"
+								onclick="showBudgetSelect()">
+								Base plan on my budget <b>></b>
+							</button>
+							<button type="button" class="btn btn-link"
+								onclick="showUsageSelect()">
+								Base plan on my usage <b>></b>
+							</button>
+						</div>
+					</div>
+					<br />
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button id="select-plan-back-btn" type="button"
+								class="btn btn-default btn-block left-btn">Back</button>
+							<button type="button" class="btn btn-primary right-btn"
+								onclick="submitPromoCodeForm()">Next</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div id="selected-plan-div" class="text-spacer">
+				<legend> Selected Plan </legend>
+				<div>
+					<p>
+						<b>Name</b>
+					</p>
+					<span id="selected-plan-name">Unlimited Talk & Text 1 GB</span><br />
+					<span>
+						<p>
+							<b>Price</b>
+						</p>
+					</span> <span class="max-price right-float-text">
+						<p>
+							<b>$60</b>
+						</p>
+					</span>
+				</div>
+				<div>
+					<br />
+					<ul class="list-style inner-ul-top-spacer">
+						<li>Unlimited Nationwide Family Calling</li>
+						<li>Unlimited Nationwide</li>
+					</ul>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="button" class="btn btn-default btn-block left-btn"
+							onclick="back(currentEl)">Back</button>
+						<button type="button" class="btn btn-primary right-btn"
+							onclick="submitSelectedPromoPlan()">Next</button>
+					</div>
+				</div>
+			</div>
+			<div id="budget-select-div" class="text-spacer">
+				<legend> Select a plan based on budget </legend>
+				<div>
+					<p>How much do you want to spend a month?</p>
+					<span>
+						<p>
+							<b>$30</b>
+						</p>
+					</span> <span class="right-float-text">
+						<p>
+							<b>$80</b>
+						</p>
+					</span>
+					<div id="budget-slider" class="ui-slider slider-top-spacer"></div>
+					<!--<p><b>Name</b></p>
+                  <span id="selected-plan-name"></span><br />
+                  <span ><p><b>Price</b></p></span><span class="selected-price"><p><b>$60</b></p></span>-->
+				</div>
+				<div id="budget-plan-data" class="dyn-sel-plan-data">
+					<!--<p>For $70 you will get:</p>
+                  <ul class="list-style">
+                     <li>Unlimited Nationwide Family Calling</li>
+                     <li>Unlimited Nationwide </li>
+                  </ul>-->
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="button" class="btn btn-default btn-block left-btn"
+							onclick="back(currentEl); clearValue(planSelectionMethod)">Back</button>
+						<button type="button" class="btn btn-primary right-btn"
+							onclick="submitBudgetSelectedPlan()">Next</button>
+					</div>
+				</div>
+			</div>
+			<div id="usage-select-div" class="text-spacer">
+				<legend> Select a plan based on usage </legend>
+				<div>
+					<p></p>
+					<br /> <span>
+						<p>
+							<b>Casual</b>
+						</p>
+					</span> <span class="right-float-text">
+						<p>
+							<b>Frequent</b>
+						</p>
+					</span>
+					<div id="usage-slider" class="ui-slider slider-top-spacer"></div>
+					<!--<p><b>Name</b></p>
+                  <span id="selected-plan-name"></span><br />
+                  <span ><p><b>Price</b></p></span><span class="selected-price"><p><b>$60</b></p></span>-->
+				</div>
+				<div id="usage-plan-data" class="dyn-sel-plan-data">
+					<!--<p><b>For $70 you will get:</b></p>
+                  <ul class="list-style">
+                     <li>Unlimited Nationwide Family Calling</li>
+                     <li>Unlimited Nationwide </li>
+                  </ul>-->
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="button" class="btn btn-default btn-block left-btn"
+							onclick="back(currentEl); ; clearValue(planSelectionMethod)">Back</button>
+						<button type="button" class="btn btn-primary right-btn"
+							onclick="submitUsageSelectedPlan()">Next</button>
+					</div>
+				</div>
+			</div>
+			<!--<div id="payment-div" class="center">
+            <legend>
+               Payment
+            </legend>
+            <div class="center">
+               <p></p>
+            </div>
+            <form class="form-horizontal">
+               <legend></legend>
+               <div class="control-group">
+                  <div class="controls">
+                     <input type="text" class="form-control" id="pay-type-txt" placeholder="Prepaid PIN">
+                  </div>
+               </div>
+               <div id="select-btn-group" class="control-group">
+                  <div class="controls">
+                     <button type="button" class="btn btn-link" onclick="showPayByCard()">Credit Card <b>></b></button>
+                  </div>
+               </div>
+               <br />
+               <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                     <button type="button" class="btn btn-default btn-block">Submit</button>
+                  </div>
+               </div>
+            </form>
+            </div>-->
+			<div id="cc-pay-div">
+				<legend> Credit Card </legend>
+				<form class="form-horizontal">
+					<p id="cc-pay-amt-due-txt"></p>
+					<div class="control-group">
+						<!--            <label class="control-label" for="card-type-txt">Text input</label>-->
+						<div class="controls">
+							<input type="hidden" class="form-control" id="card-type-txt"
+								placeholder="Card Type">
+						</div>
+						<div id="card-type-ddl" class="dropdown">
+							<button id="card-type-ddl-btn"
+								class="btn btn-primary dropdown-toggle btn-wide"
+								data-toggle="dropdown">
+								Card Type<span class="caret"></span>
+							</button>
+							<span class="dropdown-arrow"></span>
+							<ul id="card-type-list" class="dropdown-menu">
+								<li><a href="#fakelink"
+									onclick="setCCTypeHiddenVal($(this).text(), $('#card-type-txt')); setCardTypeDDLText($('#card-type-ddl-btn'), $(this).text());">VISA</a></li>
+								<li><a href="#fakelink"
+									onclick="setCCTypeHiddenVal($(this).text(), $('#card-type-txt')); setCardTypeDDLText($('#card-type-ddl-btn'), $(this).text());">MASTERCARD</a></li>
+								<li><a href="#fakelink"
+									onclick="setCCTypeHiddenVal($(this).text(), $('#card-type-txt')); setCardTypeDDLText($('#card-type-ddl-btn'), $(this).text());">AMEX</a></li>
+								<li><a href="#fakelink"
+									onclick="setCCTypeHiddenVal($(this).text(), $('#card-type-txt')); setCardTypeDDLText($('#card-type-ddl-btn'), $(this).text());">DISCOVER</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="card-name-txt"></label>
+						<div class="controls">
+							<input type="text" class="form-control" id="card-name-txt"
+								placeholder="Name on Card">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="card-number-txt"></label>
+						<div class="controls">
+							<input type="number" class="form-control" id="card-number-txt"
+								placeholder="Card Number">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="card-exp">Expiration
+							Date</label>
+						<div class="controls">
+							<input type="month" class="form-control" id="card-exp">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="card-sec-num"></label>
+						<div class="controls">
+							<input type="number" class="form-control" id="card-sec-num"
+								placeholder="Security Code">
+						</div>
+					</div>
+					<br />
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button id="cc-pay-back-btn" type="button"
+								class="btn btn-default btn-block left-btn">Back</button>
+							<button id="submit-cc-pay-btn" type="button"
+								class="btn btn-primary right-btn" onclick="submitCCPayment()">Next</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div id="number-select-div">
+				<form class="form-horizontal">
+					<legend> Select Your Phone Number </legend>
+					<!--<div class="control-group">
+                  <label class="control-label" for="phone-number-num"></label>
+                  <div class="controls">
+                     <input type="number" class="form-control" id="phone-number-num" placeholder="Enter Number">
+                  </div>
+                  </div>-->
+					<div id="available-num-ddl" class="dropdown">
+						<button id="avaible-num-ddl-btn"
+							class="btn btn-primary dropdown-toggle btn-wide"
+							data-toggle="dropdown">
+							Select A Number<span class="caret"></span>
+						</button>
+						<span class="dropdown-arrow"></span>
+						<ul id="available-num-list" class="dropdown-menu">
+							</ul>
+					</div>
+					<b>OR</b>
+					<div class="col-md-3">
+            <div class="form-group">
+                <input id="num-select-input" placeholder="Request last 4 digits of new phone number" class="form-control" type="text" data-provide="typeahead">
+            </div>          
+        </div>
+					<span id="selected-number-txt"></span> <br /> <br />
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button id="num-select-back-btn" type="button"
+								class="btn btn-default btn-block left-btn">Back</button>
+							<button type="button" class="btn btn-primary right-btn"
+								onclick="showSummary()">Next</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div id="summary-div">
+				<legend> Summary </legend>
+				<div class="accordion" id="user-inf-accordion">
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<button class="btn-link accordion-toggle" data-toggle="collapse"
+								data-parent="#accordion2" href="#collapseOne">User
+								Information ></button>
+						</div>
+						<div id="collapseOne"
+							class="accordion-body sum-inf-text-spacer collapse">
+							<div class="accordion-inner">
+								<dl class="list-style inner-ul-top-spacer">
+									<dt id="user-name-dt">Name:</dt>
+									<dt id="user-address-dt">Address:</dt>
+									<dt id="user-email-dt">Email:</dt>
+									<dt id="user-dob-dt">Date of Birth:</dt>
+								</dl>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="accordion" id="cc-inf-accordion">
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<button class="btn-link accordion-toggle" data-toggle="collapse"
+								data-parent="#accordion2" href="#cc-collapse">Credit
+								Card ></button>
+						</div>
+						<div id="cc-collapse"
+							class="accordion-body sum-inf-text-spacer collapse">
+							<div class="accordion-inner">
+								<dl class="list-style inner-ul-top-spacer">
+									<dt id="cc-type-dt">Card Type:</dt>
+									<dt id="cc-name-dt">Name on Card:</dt>
+									<dt id="cc-number-dt">Card Number:</dt>
+									<dt id="cc-exp-dt">Expiration Date:</dt>
+								</dl>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="accordion" id="plan-inf-accordion">
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<button class="btn-link accordion-toggle" data-toggle="collapse"
+								data-parent="#accordion2" href="#plan-collapse">Plan
+								Information ></button>
+						</div>
+						<div id="plan-collapse"
+							class="accordion-body sum-inf-text-spacer collapse">
+							<div class="accordion-inner">
+								<dl class="list-style inner-ul-top-spacer">
+									<dt id="plan-name-dt">Name:</dt>
+									<dt id="plan-price-dt">Price:</dt>
+								</dl>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="accordion" id="selected-number-accordion">
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<button class="btn-link accordion-toggle" data-toggle="collapse"
+								data-parent="#accordion2" href="#selected-number-collapse">
+								Your Number ></button>
+						</div>
+						<div id="selected-number-collapse"
+							class="accordion-body sum-inf-text-spacer collapse">
+							<div class="accordion-inner">
+								<dl class="list-style inner-ul-top-spacer">
+									<dt id="selected-number-dt"></dt>
+								</dl>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br />
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="button" class="btn btn-default btn-block left-btn"
+							onclick="back(currentEl)">Back</button>
+						<button id="cred-check-next-btn" type="button"
+							class="btn btn-primary right-btn" onclick="showTAndC()">Next</button>
+					</div>
+				</div>
+			</div>
+			<div id="tc-div">
+				<form class="form-horizontal">
+					<legend> Terms & Conditions </legend>
+					<div id="select-btn-group" class="control-group">
+						<div class="controls center">
+							<button type="button" class="btn btn-link"
+								onclick="$('#tc-modal').modal()">
+								Terms & Conditions <b>></b>
+							</button>
+						</div>
+					</div>
+					<div class="text-spacer">
+						<div class="tc-text">
+							<span>
+								<p>I agree</p>
+							</span>
+						</div>
+						<div class="tc-text">
+							<br /> <span>
+								<p>Email me Terms & Conditions</p>
+							</span>
+						</div>
+						<div class="tc-switch-flt-right"></div>
+					</div>
+					<br />
+					<div id="tc-btn-group" class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="button" class="btn btn-default btn-block left-btn"
+								onclick="back(currentEl)">Back</button>
+							<button id="cred-check-next-btn" type="button"
+								class="btn btn-primary right-btn" onclick="showCongrats()">Next</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div id="loading-div" class="center">
+				<p>Please wait while we process your information...</p>
+				<img src="images/orange-loader.gif">
+			</div>
+			<!--<div id="congratulations-div" class="center">
+				<legend>Congratulations!</legend>
+				<p>You have successfully enrolled for service with Golden Gate
+					Mobile.</p>
+				<p>Your 4 digit account PIN is:</p>
+				<p>
+					<b>1234</b>
+				</p>
+				<p>Download the Golden Gate Mobile App to manage your plan,
+					features and more!</p>
+			</div>-->
+			<div id="congratulations-div" class="center">
+				<legend>
+					<b>Congratulations!</b>
+				</legend>
+				<p>Your new number is:</p>
+				<p id="congrats-selected-num">
+					<b>415-646-7878</b>
+				</p>
+				<p>Manage your plan, features and more. Download our app today!</p>
+				<button id="congrats-fnsh-btn"></button>
+			</div>
+		</div>
+		<div id="splash-div">
+			<img src="images/splash-image.png" id="splash-img">
+		</div>
+		<div id="helper-modal" class="modal fade in" tabindex="-1"
+			role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body">
+						<h4>Contract</h4>
+						<p>This postpaid option includes a 2 year contract and
+							competitive plans.</p>
+						<h4>No Contract</h4>
+						<p>This prepaid option allows you to add money to your phone
+							to be used as you need it.</p>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+		</div>
+		<div id="tc-modal" class="modal fade in" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body">
+						<legend>Terms & Conditions</legend>
+						<p>
+							These terms and conditions ("Terms and Conditions") govern your
+							use of Golden Gate Mobile's Mobile Broadband on Demand Service, a
+							wireless data service that allows you to access the Internet from
+							your laptop or computer (including tablet computers) (the
+							"Service"). The Service may be used only with a Mobile Broadband
+							Device provided to you by Golden Gate Mobile or its authorized
+							partners. The term "Mobile Broadband Device" means the wireless
+							mobile hotspot that we have authorized to be used with the
+							Service. The Service is provided at our discretion. We can modify
+							or cancel Service, or take corrective action at any time without
+							prior notice and for any reason, including, but not limited to,
+							your violation of any of these Terms and Conditions. We may
+							change or update these Terms and Conditions, including pricing,
+							from time to time. The Terms and Conditions will be updated on
+							the Golden Gate Mobile website, <a
+								href="http://www.goldengatemobile.com">www.goldengatemobile.com</a>,
+							and you agree that your continued use of the Service will be
+							governed by any updates and by the Terms and Conditions as
+							modified by those updates, so we encourage you to review the
+							Terms and Conditions regularly.
+						</p>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+		</div>
+	</div>
+		<!-- /.container -->
+		<!-- Bootstrap core JavaScript
+         ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+		<script src="js/jquery.ui.touch-punch.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap-select.js"></script>
+		<script src="js/bootstrap-switch.js"></script>
+		<script src="js/flatui-checkbox.js"></script>
+		<script src="js/flatui-radio.js"></script>
+		<script src="js/jquery.placeholder.js"></script>
+		<script src="js/bootstrap-datepicker.js"></script>
+		<script src="js/bootstrap-typeahead.js"></script>
+		<script src="js/models.js"></script>
+		<script src="js/ggm-demo.js"></script>
+</body>
+</html>
